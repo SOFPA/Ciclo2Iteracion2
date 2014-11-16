@@ -1,0 +1,11 @@
+{
+    "displayName" : "UTI",
+    "name" : "uti",
+    "templateName" : "uti",
+    "url" : "uti.html",
+    "server": "localhost:8080",
+    "server": "localhost:8080",
+    "context": "/ClinicaDeProblemas.web/webresources/UTIMaster",
+    
+    "el" : "#main"
+}

@@ -1,0 +1,9 @@
+{
+    "displayName" : "Contacto",
+    "name" : "contacto",
+    "templateName" : "contacto",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/ClinicaDeProblemas.web/webresources/Contacto",
+    "el" : "#main"
+}

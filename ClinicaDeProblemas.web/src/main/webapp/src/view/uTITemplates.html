@@ -1,0 +1,33 @@
+<script type="text/template" id="uTI">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-uTIForm">
+    <% if(uTI.id) {%>
+    <input type="hidden" name="id" value="<%= uTI.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">Name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= uTI.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+			<label for="fechaEvento">Fecha Evento</label>
+    		<input type="text" data-converter="date" data-date-format="dd/mm/yyyy" class="form-control" id="fechaEvento"  name="fechaEvento" placeholder="Enter value" />
+    		<%= '<scr'+'ipt>' %>
+        	$('#fechaEvento').datepicker({autoclose:true});
+        	$('#fechaEvento').datepicker('setDate',App.Utils.Converter.date.toDate("<%= uTI.get('fechaEvento') %>"));
+    		<%= '</scr'+'ipt>' %>
+		</div>
+		<div class="form-group" >
+		<label for="salon">Salon</label>
+    	<input type="text" class="form-control" id="salon" name="salon" placeholder="Enter value" value="<%= uTI.get('salon') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="materia">Materia</label>
+    	<input type="text" class="form-control" id="materia" name="materia" placeholder="Enter value" value="<%= uTI.get('materia') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="informacion">Informacion</label>
+    	<input type="text" class="form-control" id="informacion" name="informacion" placeholder="Enter value" value="<%= uTI.get('informacion') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 

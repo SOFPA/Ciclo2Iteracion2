@@ -1,0 +1,9 @@
+{
+    "displayName" : "Opinion",
+    "name" : "opinion",
+    "templateName" : "opinion",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/ClinicaDeProblemas.web/webresources/Opinion",
+    "el" : "#main"
+}
