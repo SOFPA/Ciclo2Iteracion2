@@ -1,9 +1,0 @@
-{
-    "displayName" : "Usuario",
-    "name" : "usuario",
-    "templateName" : "usuario",
-    "url" : "user.html",
-    "server": "localhost:8080",
-    "context": "/ClinicaDeProblemas.web/webresources/Usuario",
-    "el" : "#main"
-}

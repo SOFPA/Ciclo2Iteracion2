@@ -1,9 +1,0 @@
-{
-    "displayName" : "UTI",
-    "name" : "uTI",
-    "templateName" : "uTI",
-    "url" : "user.html",
-    "server": "localhost:8080",
-    "context": "/ClinicaDeProblemas.web/webresources/UTI",
-    "el" : "#main"
-}

@@ -1,0 +1,33 @@
+<script type="text/template" id="sugerencia">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-sugerenciaForm">
+    <% if(sugerencia.id) {%>
+    <input type="hidden" name="id" value="<%= sugerencia.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">Name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= sugerencia.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="obsevacion">Obsevacion</label>
+    	<input type="text" class="form-control" id="obsevacion" name="obsevacion" placeholder="Enter value" value="<%= sugerencia.get('obsevacion') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="tema">Tema</label>
+    	<input type="text" class="form-control" id="tema" name="tema" placeholder="Enter value" value="<%= sugerencia.get('tema') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="login">Login</label>
+    	<input type="text" class="form-control" id="login" name="login" placeholder="Enter value" value="<%= sugerencia.get('login') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="codigo">Codigo</label>
+    	<input type="text" class="form-control" id="codigo" name="codigo" placeholder="Enter value" value="<%= sugerencia.get('codigo') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="carrera">Carrera</label>
+    	<input type="text" class="form-control" id="carrera" name="carrera" placeholder="Enter value" value="<%= sugerencia.get('carrera') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 
