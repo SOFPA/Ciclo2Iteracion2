@@ -74,8 +74,11 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                             /*Ahora se instancia un SportPromModel, con un nuevo objeto JSON como parámetro como constructor (antes sportModel), extrayendo los datos de “d”.*/
                             var model = new App.Model.RecursosPorAvalarModel({name: d.attributes.name, average: average});
                             //y se agrega finalmente a los modelos prom de la lista.
+                            if(!d.attributes.avalado)
+                            {
+                              self.recursosPorAvalarModelList.models.push(model); 
+                            }
                             
-                            self.recursosPorAvalarModelList.models.push(model);
                         });
                         //Se invoca la función de renderizado para que muestre los resultados en la nueva lista.
                         self._renderLista(params);
