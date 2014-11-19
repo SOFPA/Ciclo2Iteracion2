@@ -89,6 +89,21 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                     }
                 });
             }
+        },
+        
+        avalar: function() {
+            var elementos = this.recursosPorAvalarModelList.models;
+                        
+                        _.each(elementos, function(d) {
+                            
+//                            if(d.attributes.selection !== null)
+//                            {
+//                                d.attributes.avalado = true;
+//                            }
+//                            console.log(d.$el.html(d.listRecursosPorAvalarTemplate.getSelection()));
+//                            
+                        });
+               
         }
      
      

@@ -59,18 +59,29 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
         {
             this.toolbarComponent.hideButton('create');
              this.toolbarComponent.hideButton('save');
-             
+             this.toolbarComponent.hideButton('avalar');
              this.toolbarComponent.hideButton('print');
              this.toolbarComponent.hideButton('refresh');
              this.toolbarComponent.hideButton('search');
              this.toolbarComponent.showButton('avalarRecursos');
+             this.toolbarComponent.showButton('cancel');
+             this.toolbarComponent.render();
             this.componentController.recursosPorAvalar();
             
         },
         
         avalar: function()
         {
-            
+            this.toolbarComponent.showButton('create');
+             this.toolbarComponent.showButton('save');
+             this.toolbarComponent.showButton('avalar');
+             this.toolbarComponent.showButton('print');
+             this.toolbarComponent.showButton('refresh');
+             this.toolbarComponent.showButton('search');
+             this.toolbarComponent.hideButton('avalarRecursos');
+             this.toolbarComponent.showButton('cancel');
+             this.toolbarComponent.render();
+            this.componentController.avalar();
         }
     });
     return App.Component.RecursoComponent;
