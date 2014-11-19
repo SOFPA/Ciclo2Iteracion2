@@ -34,17 +34,43 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
             this.toolbarComponent.addButton({
                   name: 'avalar',
                   displayName: 'Avalar',
-                  icon: 'glyphicon-search',
+                  icon: '',
                   show: true
               },
              this.recursosPorAvalar,
              this);
+             
+             
+             this.toolbarComponent.addButton({
+                  name: 'avalarRecursos',
+                  displayName: 'AvalarRecursos',
+                  icon: '',
+                  show: false
+              },
+             this.avalar,
+             this);
+             
+              
+             
 			
         },
         
         recursosPorAvalar: function()
         {
+            this.toolbarComponent.hideButton('create');
+             this.toolbarComponent.hideButton('save');
+             
+             this.toolbarComponent.hideButton('print');
+             this.toolbarComponent.hideButton('refresh');
+             this.toolbarComponent.hideButton('search');
+             this.toolbarComponent.showButton('avalarRecursos');
             this.componentController.recursosPorAvalar();
+            
+        },
+        
+        avalar: function()
+        {
+            
         }
     });
     return App.Component.RecursoComponent;

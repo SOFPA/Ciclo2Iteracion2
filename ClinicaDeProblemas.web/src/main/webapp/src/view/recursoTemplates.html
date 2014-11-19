@@ -51,6 +51,7 @@
     <tr>
          <th>Nombre</th>
          <th>url</th>
+         <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -61,9 +62,11 @@
             <td><%= htmlEncode(recurso.getDisplay('name')) %></td>
             <!-- esta instrucción indica qué campo del elemento actual del bucle se debe mostrar en ese lugar (cada <td> es una columna)>  -->
             <td><%= htmlEncode(recurso.getDisplay('url')) %></td>
+            <td><input id="selection" type="checkbox" name="selection" value="<%= recurso.get('name')%>" /></td>
     </tr>
     <% }); %>
     </tbody>
     </table>
     </div>
 </script>
+
