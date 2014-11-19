@@ -5,6 +5,9 @@
     <input type="hidden" name="id" value="<%= recurso.id %>"/>
     <% }%>
 		<div class="form-group" >
+		<div>
+                <button type="button" onClick="location.href='cargar.html'">cargarArchivo</button>
+                </div>
 		<label for="name">Name</label>
     	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= recurso.get('name') %>"/>	
 		</div>
