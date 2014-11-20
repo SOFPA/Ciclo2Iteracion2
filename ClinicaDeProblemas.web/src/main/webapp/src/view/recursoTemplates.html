@@ -5,11 +5,9 @@
     <input type="hidden" name="id" value="<%= recurso.id %>"/>
     <% }%>
 		<div class="form-group" >
-		<div>
-                <button type="button" onClick="location.href='cargar.html'">cargarArchivo</button>
-                </div>
+		
 		<label for="name">Name</label>
-    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= recurso.get('name') %>"/>	
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= recurso.get('name') %>"/>	
 		</div>
 		<div class="form-group" >
 		<label for="tema">Tema</label>
@@ -40,6 +38,9 @@
 		<label for="url">Url</label>
     	<input type="text" class="form-control" id="url" name="url" placeholder="Enter value" value="<%= recurso.get('url') %>"/>	
 		</div>
+                <div>
+                <button class="btn btn-primary" type="button" onClick="location.href='cargar.html'">cargarArchivo</button>
+                </div>
     </form>
     </div>
 </script> 
@@ -47,7 +48,7 @@
 
 <script type="text/template" id="recursosPorAvalarList">
     <div class="panel panel-default">
-    <!-- La información se va a presentar en una tabla -->
+    <!-- La informaciï¿½n se va a presentar en una tabla -->
     <table class="table striped">
 <!-- Estos son los encabezados de la tabla para cada campo del model (estos se visualizan) -->
     <thead>
@@ -58,12 +59,12 @@
     </tr>
     </thead>
     <tbody>
-<!-- Aqui se renderizan los modelos existentes en el modelo de la lista. Note el uso de javascript en el interior de los tags <% %> (en este caso un bucle que toma cada ítem de la lista). La variable ‘recursos’ será instanciada por el controlador (se verá más adelante) -->
+<!-- Aqui se renderizan los modelos existentes en el modelo de la lista. Note el uso de javascript en el interior de los tags <% %> (en este caso un bucle que toma cada ï¿½tem de la lista). La variable ï¿½recursosï¿½ serï¿½ instanciada por el controlador (se verï¿½ mï¿½s adelante) -->
     <% _.each(recursos, function(recurso) { %>
 <!-- Se hace un nuevo <tr> por cada elemento en la lista-->
     <tr>
             <td><%= htmlEncode(recurso.getDisplay('name')) %></td>
-            <!-- esta instrucción indica qué campo del elemento actual del bucle se debe mostrar en ese lugar (cada <td> es una columna)>  -->
+            <!-- esta instrucciï¿½n indica quï¿½ campo del elemento actual del bucle se debe mostrar en ese lugar (cada <td> es una columna)>  -->
             <td><%= htmlEncode(recurso.getDisplay('url')) %></td>
             <td><input id="selection" type="checkbox" name="selection" value="<%= recurso.get('name')%>" /></td>
     </tr>
