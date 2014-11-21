@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Application</title>
+        <title>Clinica de Problemas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="src/css/lista.css">
         <script src="./js/vendor/jquery-1.9.1.js"></script>
         <script src="./js/vendor/bootstrap.min.js"></script>
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-          <script src="../../assets/js/html5shiv.js"></script>
-          <script src="../../assets/js/respond.min.js"></script>
-        <![endif]-->
-        <script type="text/javascript">
-            function redirectFrame(url) {
-                $('#container').attr('src', url);
-                $('#container').css('height', ($(window).height() - $('#header').height() - 30) + 'px');
-            }
-            
-            </script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="./src/assets/js/bootstrap.min.js"></script>
+        <!-- Bootstrap -->
+        <link href="./src/assets/css/bootstrap.css" rel="stylesheet">
+        <link href="./src/assets/css/bootstrap-theme.css" rel="stylesheet">
+
+        <!-- siimple style -->
+        <link href="./src/assets/css/style.css" rel="stylesheet">
     </head>
     <body>
-        <div id="header" >
-            <div class="btn-group navbar-default menu" style="width: 100%;">
-	            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	                Menu <span class="caret"></span>
-	            </button>
-	            <ul class="dropdown-menu" role="menu">
-	                <li><a href="#" onclick="redirectFrame('recurso.html'); return false;">Recurso</a></li>
-    
-	                <li><a href="#" onclick="redirectFrame('comentario.html'); return false;">Comentario</a></li>
-    
-	                <li><a href="#" onclick="redirectFrame('usuario.html'); return false;">Usuario</a></li>
-    
-	                <li><a href="#" onclick="redirectFrame('uTI.html'); return false;">UTI</a></li>
-    
-	                <li><a href="#" onclick="redirectFrame('opinion.html'); return false;">Opinion</a></li>
-    
-	                <li><a href="#" onclick="redirectFrame('sugerencia.html'); return false;">Sugerencia</a></li>
-    
-	                <li class="divider"></li>
-	          			      <li><a href="#" onclick="redirectFrame('recursoMaster.html'); return false;">Recurso Master</a></li>
-       				
-	          			      <li><a href="#" onclick="redirectFrame('uTIMaster.html'); return false;">UTI Master</a></li>
-       				
-	            </ul>
-	        </div>
-	        <hr/>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="http://fisica.uniandes.edu.co/">Departamento de F&iacute;sica</a>
         </div>
-        <iframe id="container" src="" style="width: 100%; height: 100%; border: 0; margin: 0;"></iframe> 
-    </body>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Monitores</a></li>
+            <li><a href="#">Profesores</a></li>
+            <li><a href="#">Administrador</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<div id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h1>Clinica de Problemas</h1>
+					
+					<form class="form-inline signup" role="form">
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Usuario uniandes">
+					  </div>
+                
+                                            <button type="button" class="btn btn-theme" ><a href="index2.html">Entrar</a></button>
+					</form>					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3">
+					<p class="copyright">Copyright &copy; 2014 - Bootstraptaste.com</p>
+			</div>
+		</div>		
+	</div>	
+	</div>
+  </body>
 </html>
