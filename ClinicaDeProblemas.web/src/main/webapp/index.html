@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="src/css/lista.css">
+        <link rel="stylesheet" href="src/css/signin.css">
         <script src="./js/vendor/jquery-1.9.1.js"></script>
         <script src="./js/vendor/bootstrap.min.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,32 +43,17 @@
       </div>
     </div>
         <br><br>
-	<div id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<h1>Clinica de Problemas</h1>
-					
-					<form class="form-inline signup" role="form">
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Usuario uniandes">
-					  </div>
-                
-                                            <input type=button onclick="location.href='index2.html'" class="btn btn-default" value="Entrar!">
-					</form>					
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<div id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3">
-					<p class="copyright">Copyright &copy; 2014 - Bootstraptaste.com</p>
-			</div>
-		</div>		
-	</div>	
-	</div>
+        <div class="container">
+            <form class="form-signin" role="form">
+                <h2 class="form-signin-heading">Entrar</h2>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email">
+                <div><br></div>
+                <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+                <input class="btn btn-lg btn-primary btn-block" type="button" value="Sign in" onclick="location.href='index2.html'">
+      </form>
+        </div>
+	
+	
   </body>
 </html>
