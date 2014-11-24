@@ -33,7 +33,12 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Singleton;
 
 import co.edu.uniandes.csw.SOFPA.recurso.logic.api.IRecursoLogicService;
+import co.edu.uniandes.csw.SOFPA.recurso.logic.dto.RecursoPageDTO;
 @Singleton
 public class RecursoMockLogicService extends _RecursoMockLogicService implements IRecursoLogicService {
+
+    public RecursoPageDTO getRecursosByTema(String tema) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }

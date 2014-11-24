@@ -49,7 +49,31 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
               },
              this.avalar,
              this);
-             
+             this.toolbarComponent.addButton({
+                  name: 'exec-search',
+                  displayName: 'Search',
+                  icon: 'glyphicon-search',
+                  show: false
+              },
+             this.execSearch,
+             this);
+             this.toolbarComponent.addButton({
+                 name: 'cancel-search',
+                 displayName: 'Cancel',
+                 icon: 'glyphicon-remove-sign',
+                 show: false
+             },
+             function(){
+                 this.toolbarComponent.showButton('create');
+                 this.toolbarComponent.showButton('refresh');
+                 this.toolbarComponent.showButton('print');
+                 this.toolbarComponent.showButton('search');
+                 this.toolbarComponent.hideButton('cancel-search');
+                 this.toolbarComponent.hideButton('exec-search');
+                 this.toolbarComponent.render();
+                 this.componentController.list(null, this.list, this);
+             },
+             this);
               
              
 			
@@ -82,7 +106,31 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.toolbarComponent.showButton('cancel');
              this.toolbarComponent.render();
             this.componentController.avalar();
-        }
+        },
+         search: function(){
+             this.toolbarComponent.hideButton('create');
+             this.toolbarComponent.hideButton('avalar');
+             this.toolbarComponent.hideButton('save');
+             this.toolbarComponent.hideButton('cancel');
+             this.toolbarComponent.hideButton('print');
+             this.toolbarComponent.hideButton('refresh');
+             this.toolbarComponent.hideButton('search');
+             this.toolbarComponent.showButton('exec-search');
+             this.toolbarComponent.showButton('cancel-search');
+             this.toolbarComponent.render();
+             this.componentController.create();
+         },
+         execSearch: function(){
+             this.toolbarComponent.showButton('create');
+             this.toolbarComponent.hideButton('avalar');
+             this.toolbarComponent.showButton('refresh');
+             this.toolbarComponent.showButton('print');
+             this.toolbarComponent.showButton('search');
+             this.toolbarComponent.hideButton('cancel-search');
+             this.toolbarComponent.hideButton('exec-search');
+             this.toolbarComponent.render();
+             this.componentController.recursoSearch(this.list,this);
+         }
     });
     return App.Component.RecursoComponent;
 });

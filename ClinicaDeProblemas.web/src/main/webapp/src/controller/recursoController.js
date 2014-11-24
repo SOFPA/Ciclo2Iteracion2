@@ -38,9 +38,9 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
      
      _renderLista: function() {
             var self = this;
-            /*Aquí se utiliza el efecto gráfico backbone deslizar. “$el” hace referencia al <div id=”main”> ubicado en el index.html. Dentro de este div se despliegue la tabla.*/
+            /*Aquï¿½ se utiliza el efecto grï¿½fico backbone deslizar. ï¿½$elï¿½ hace referencia al <div id=ï¿½mainï¿½> ubicado en el index.html. Dentro de este div se despliegue la tabla.*/
             this.$el.slideUp("fast", function() {
-                /*Establece que en el <div> se despliegue el template de la variable “”. Como parámetros entran las variables establecidas dentro de los tags <%%> con sus valores como un objeto JSON. En este caso, la propiedad sports tendrá la lista que instanció “sportSearch” en la variable del bucle <% _.each(sports, function(sport) { %>*/
+                /*Establece que en el <div> se despliegue el template de la variable ï¿½ï¿½. Como parï¿½metros entran las variables establecidas dentro de los tags <%%> con sus valores como un objeto JSON. En este caso, la propiedad sports tendrï¿½ la lista que instanciï¿½ ï¿½sportSearchï¿½ en la variable del bucle <% _.each(sports, function(sport) { %>*/
  
                 self.$el.html(self.listRecursosPorAvalarTemplate({recursos: self.recursosPorAvalarModelList.models}));
                 self.$el.slideDown("fast");
@@ -69,9 +69,9 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                         self.recursosPorAvalarModelList = new App.Model.RecursosPorAvalarList;
                         //Se itera sobre la variable elementos, que corresponden a la lista de modelos obtenida del servico REST getSports
                         _.each(elementos, function(d) {
-                            //Se hace el cálculo del nuevo campo
+                            //Se hace el cï¿½lculo del nuevo campo
                             var average = d.attributes.url;
-                            /*Ahora se instancia un SportPromModel, con un nuevo objeto JSON como parámetro como constructor (antes sportModel), extrayendo los datos de “d”.*/
+                            /*Ahora se instancia un SportPromModel, con un nuevo objeto JSON como parï¿½metro como constructor (antes sportModel), extrayendo los datos de ï¿½dï¿½.*/
                             var model = new App.Model.RecursosPorAvalarModel({name: d.attributes.name, average: average});
                             //y se agrega finalmente a los modelos prom de la lista.
                             if(!d.attributes.avalado)
@@ -80,7 +80,7 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                             }
                             
                         });
-                        //Se invoca la función de renderizado para que muestre los resultados en la nueva lista.
+                        //Se invoca la funciï¿½n de renderizado para que muestre los resultados en la nueva lista.
                         self._renderLista(params);
                         Backbone.trigger(self.componentId + '-' + 'post-recurso-list', {view: self});
                     },
@@ -104,7 +104,19 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
 //                            
                         });
                
-        }
+        },
+         recursoSearch: function (callback,context) {
+              var self = this;
+              var model = $('#' + this.componentId + '-recursoForm').serializeObject();
+              this.currentModel.set(model);
+              var delegate = new App.Delegate.recursoDelegate();
+              delegate.search(self.currentModel, function (data) {
+                  self.currentList.reset(data.records);
+                 callback.call(context,{data: self.currentList, page: 1, pages: 1, totalRecords: self.currentList.lenght})
+              }, function (data) {
+                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'recurso-search', view: self, id: '', data: data, error: 'Error in recurso search'});
+              });
+          }
      
      
     });
