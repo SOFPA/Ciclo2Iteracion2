@@ -22,8 +22,13 @@
 		</div>
 		<div class="form-group" >
 		<label for="materia">Materia</label>
-    	<input type="text" class="form-control" id="materia" name="materia" placeholder="Enter value" value="<%= uTI.get('materia') %>"/>	
-		</div>
+                    <select name="materia" id="materia">
+                         <option value="Fisica I">Fisica I</option>
+                         <option value="Fisica II">Fisica II</option>
+                         <option value="Ondas y Fluidos">Ondas y Fluidos</option>
+                         <option value="Electromagnetismo">Electromagnetismo</option>
+                    </select>  
+                    </div>
 		<div class="form-group" >
 		<label for="informacion">Informacion</label>
     	<input type="text" class="form-control" id="informacion" name="informacion" placeholder="Enter value" value="<%= uTI.get('informacion') %>"/>	
