@@ -5,7 +5,6 @@
     <input type="hidden" name="id" value="<%= recurso.id %>"/>
     <% }%>
 		<div class="form-group" >
-		
 		<label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= recurso.get('name') %>"/>	
 		</div>
@@ -58,14 +57,14 @@
 		<div class="form-group" >
 		<label for="url">Url</label>
     	<input type="text" class="form-control" id="url" name="url" placeholder="Enter value" value="<%= recurso.get('url') %>"/>	
-		</div>
+		</div> 
                 <div>
-                <button class="btn btn-primary" type="button" onClick="location.href='ejemploCargar.html'">cargarArchivo</button>
-                </div>      
+                <button class="btn btn-primary" type="button" onClick="javascript:window.open('ejemploCargar.html','','width=400,height=300,left=50,top=50,toolbar=yes')">cargar Archivo</button>
+                </div>
     </form>
     </div>
-  
 </script> 
+
 <script type="text/template" id="recursosPorAvalarList">
     <div class="panel panel-default">
     <!-- La informaci�n se va a presentar en una tabla -->

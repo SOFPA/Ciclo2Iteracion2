@@ -62,8 +62,11 @@ and open the template in the editor.
           var file = evt.target.files[0];
           insertFile(file);
         });
+        alert("El archivo cargo correctamente");
         var okay = document.getElementById('okay');
         okay.style.display = 'block';
+        
+        console.log(Document.URL);
       }
 
       /**
@@ -116,11 +119,13 @@ and open the template in the editor.
       }
     </script>
     <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    
   </head>
   <body>
     <!--Add a file picker for the user to start the upload process -->
     <input type="file" id="filePicker" style="display: none" />
-    <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
-    <button type="button" id="okay" style="display: none">ok</button>
+    <button type="button" id="authorizeButton" style="display: none" value="Authorize">Ingresar</button>
+    <button type="button" id="okay" style="display: none" onClick="javascript:window.close()">ok</button>
+
   </body>
 </html>
