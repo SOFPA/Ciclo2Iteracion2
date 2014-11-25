@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
         <action>
-            <actionName>CUSTOM-sinPruebas</actionName>
-            <displayName>sinPruebas</displayName>
+            <actionName>CUSTOM-noTests</actionName>
+            <displayName>noTests</displayName>
             <goals>
                 <goal>clean:clean</goal>
                 <goal>compiler:compile</goal>
