@@ -116,7 +116,11 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
               }, function (data) {
                  Backbone.trigger(self.componentId + '-' + 'error', {event: 'recurso-search', view: self, id: '', data: data, error: 'Error in recurso search'});
               });
-          }
+          },
+          
+         verRecurso: function(){
+             
+         }
      
      
     });
