@@ -40,6 +40,14 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.recursosPorAvalar,
              this);
              
+             this.listComponent.addAction({
+                 name: 'view',
+                 displayName: 'Ver',
+                 icon: '',
+                 show: true
+             },
+             this.verRecurso,
+             this);
              
              this.toolbarComponent.addButton({
                   name: 'avalarRecursos',
@@ -130,6 +138,10 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.toolbarComponent.hideButton('exec-search');
              this.toolbarComponent.render();
              this.componentController.recursoSearch(this.list,this);
+         },
+         verRecurso: function(){
+             // Se le deberia pasar la URL
+             this.componentController.verRecurso();
          }
     });
     return App.Component.RecursoComponent;
