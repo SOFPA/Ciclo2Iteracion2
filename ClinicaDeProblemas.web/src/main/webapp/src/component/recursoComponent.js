@@ -98,7 +98,18 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.toolbarComponent.showButton('avalarRecursos');
              this.toolbarComponent.showButton('cancel');
              this.toolbarComponent.render();
-            this.componentController.recursosPorAvalar();
+            //this.componentController.recursosPorAvalar();
+//            this.listComponent.enableMultipleSelection(true);
+//            this.listComponent.removeColumn('tema');
+//            this.listComponent.removeColumn('dificultad');
+//            this.listComponent.removeColumn('tipo');
+//            this.listComponent.removeColumn('semestre');
+//            this.listComponent.removeColumn('materia');
+            this.listComponent.enableMultipleSelection(true);
+//            this.listComponent.hideAction('edit');
+//            this.listComponent.hideAction('delete');
+            
+            this.listComponent.render();
             
         },
         
@@ -113,7 +124,26 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.toolbarComponent.hideButton('avalarRecursos');
              this.toolbarComponent.showButton('cancel');
              this.toolbarComponent.render();
-            this.componentController.avalar();
+            //this.componentController.avalar();
+            var v = this.listComponent.getSelectedItems();
+            var self = this;
+                    _.each(v, function(d){
+                        console.log(d.attributes.name);
+                        
+                        console.log(d.id);
+                        
+                        self.componentController.edit(d);
+                        
+                        self.componentController.save2();
+                        
+                    });
+//            this.setRecordsVisible(true);
+//            this.listComponent.cleanSelected();
+//            this.listComponent.enableMultipleSelection(false);
+//            
+//            this.listComponent.showAction('edit');
+//            this.listComponent.showAction('delete');
+//            this.listComponent.render();
         },
          search: function(){
              this.toolbarComponent.hideButton('create');

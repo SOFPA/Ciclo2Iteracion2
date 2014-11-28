@@ -120,6 +120,30 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
           
          verRecurso: function(){
              
+         },
+         
+         save2: function(){
+             var self = this;
+            var model = $('#' + this.componentId + '-recursoForm').serializeObject();
+ 
+			
+			 	model.avalado=true;
+			 
+            if (App.Utils.eventExists(this.componentId + '-' +'instead-recurso-save')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-recurso-save', {view: this, model : model});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-recurso-save', {view: this, model : model});
+                this.currentModel.set(model);
+                this.currentModel.save({},
+                        {
+                            success: function(model) {
+                                Backbone.trigger(self.componentId + '-' + 'post-recurso-save', {model: self.currentModel});
+                            },
+                            error: function(model,response,options) {
+                                Backbone.trigger(self.componentId + '-' + 'error', {event: 'recurso-save', view: self, error: response});
+                            }
+                        });
+            }
          }
      
      
