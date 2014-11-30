@@ -40,6 +40,15 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.recursosPorAvalar,
              this);
              
+             this.toolbarComponent.addButton({
+                  name: 'salvarComentario',
+                  displayName: 'Guardar',
+                  icon: '',
+                  show: false
+              },
+             this.guardarComentario,
+             this);
+             
              this.listComponent.addAction({
                  name: 'view',
                  displayName: 'Ver',
@@ -47,6 +56,15 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
                  show: true
              },
              this.verRecurso,
+             this);
+             
+             this.listComponent.addAction({
+                 name: 'comentar',
+                 displayName: 'Comentar',
+                 icon: '',
+                 show: true
+             },
+             this.comentar,
              this);
              
              this.toolbarComponent.addButton({
@@ -176,6 +194,36 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              $("#recursoList").hide();
              $(".pagination").hide();
              this.componentController.verRecurso();
+         },
+         
+         comentar: function(){
+             // Se le deberia pasar la URL
+             
+             this.componentController.comentar();
+             this.toolbarComponent.hideButton('create');
+             this.toolbarComponent.hideButton('save');
+             this.toolbarComponent.hideButton('avalar');
+             this.toolbarComponent.hideButton('print');
+             this.toolbarComponent.hideButton('refresh');
+             this.toolbarComponent.hideButton('search');
+             this.toolbarComponent.showButton('salvarComentario');
+             this.toolbarComponent.showButton('cancel');
+             this.toolbarComponent.render();
+         },
+         
+         guardarComentario: function(){
+             // Se le deberia pasar la URL
+             
+             this.componentController.guardarComentario();
+             this.toolbarComponent.showButton('create');
+             this.toolbarComponent.showButton('save');
+             this.toolbarComponent.showButton('avalar');
+             this.toolbarComponent.showButton('print');
+             this.toolbarComponent.showButton('refresh');
+             this.toolbarComponent.showButton('search');
+             this.toolbarComponent.hideButton('salvarComentario');
+             this.toolbarComponent.hideButton('cancel');
+             this.toolbarComponent.render();
          }
     });
     return App.Component.RecursoComponent;

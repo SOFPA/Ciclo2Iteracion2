@@ -155,6 +155,22 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                 this._renderEdit();
                 Backbone.trigger(this.componentId + '-' + 'post-recurso-create', {view: this});
             }
+         },
+         
+         comentar: function(){
+             var self = this;
+            /*Aqu� se utiliza el efecto gr�fico backbone deslizar. �$el� hace referencia al <div id=�main�> ubicado en el index.html. Dentro de este div se despliegue la tabla.*/
+            this.$el.slideUp("fast", function() {
+                /*Establece que en el <div> se despliegue el template de la variable ��. Como par�metros entran las variables establecidas dentro de los tags <%%> con sus valores como un objeto JSON. En este caso, la propiedad sports tendr� la lista que instanci� �sportSearch� en la variable del bucle <% _.each(sports, function(sport) { %>*/
+ 
+                self.$el.html(_.template($('#comentar').html()));
+                self.$el.slideDown("fast");
+            });
+         },
+         
+         guardarComentario: function()
+         {
+             var v = $('');
          }
      
      
