@@ -57,6 +57,7 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
               },
              this.avalar,
              this);
+             
              this.toolbarComponent.addButton({
                   name: 'exec-search',
                   displayName: 'Search',
@@ -65,6 +66,7 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
               },
              this.execSearch,
              this);
+             
              this.toolbarComponent.addButton({
                  name: 'cancel-search',
                  displayName: 'Cancel',
@@ -171,6 +173,8 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
          },
          verRecurso: function(){
              // Se le deberia pasar la URL
+             $("#recursoList").hide();
+             $(".pagination").hide();
              this.componentController.verRecurso();
          }
     });

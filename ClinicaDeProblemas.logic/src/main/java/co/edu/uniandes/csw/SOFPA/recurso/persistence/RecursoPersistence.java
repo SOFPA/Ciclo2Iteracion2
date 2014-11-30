@@ -45,10 +45,10 @@ public class RecursoPersistence extends _RecursoPersistence  implements IRecurso
 
     @SuppressWarnings("unchecked")
       public RecursoPageDTO getRecursosByTema(String tema) {
-         Query count = entityManager.createQuery("select count(u) from UserEntity u");
+         Query count = entityManager.createQuery("select count(u) from RecursoEntity u");
          Long regCount = 0L;
          regCount = Long.parseLong(count.getSingleResult().toString());
-         Query q = entityManager.createQuery("SELECT u FROM UserEntity u WHERE u.lastName like :lastName");
+         Query q = entityManager.createQuery("SELECT u FROM RecursoEntity u WHERE u.tema like :tema");
          q.setParameter("tema", "%"+tema+"%");
 
          RecursoPageDTO response = new RecursoPageDTO();

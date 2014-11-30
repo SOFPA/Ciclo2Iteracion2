@@ -32,7 +32,7 @@ define(['delegate/_recursoDelegate'], function() {
         search: function(user, callback, callbackError) {
               console.log('Recurso Search: ');
               $.ajax({
-                  url: '/recurso.web/webresources/Recurso/search/query',
+                  url: '/ClinicaDeProblemas.web/webresources/Recurso',
                   type: 'GET',
                   data: $.param(user.toJSON()),
                   contentType: 'application/json'

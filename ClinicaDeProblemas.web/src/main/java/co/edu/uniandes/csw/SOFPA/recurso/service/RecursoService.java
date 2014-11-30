@@ -53,6 +53,7 @@ public class RecursoService extends _RecursoService {
     @Context
       UriInfo uriInfo;
  
+     
       @GET
       @Override
       public RecursoPageDTO getRecursos(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {

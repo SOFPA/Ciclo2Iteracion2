@@ -96,3 +96,27 @@
     </div>
 </script>
 
+<script type="text/template" id="recursoBuscarTema">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-recursoForm">
+    <% if(recurso.id) {%>
+    <input type="hidden" name="id" value="<%= recurso.id %>"/>
+    <% }%>
+		
+		<div class="form-group" >
+		<label for="tema">Tema</label>
+                    <select name="tema" id="tema">
+                         <option disabled role=separator>Fisica I</option>
+                         <option value="Cinemática">Cinemática</option>
+                         <option value="Dinámica">Dinámica</option>
+                         <option disabled role=separator>Fisica II</option>
+                         <option value="Óptica">Óptica</option>
+                         <option value="Electromagnetismo">Electromagnetismo</option>
+                    </select> 
+		</div>
+		
+               
+    </form>
+    </div>
+</script> 
+

@@ -144,6 +144,17 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                             }
                         });
             }
+         },
+         
+         abrirBuscar: function(){
+             if (App.Utils.eventExists(this.componentId + '-' +'instead-recurso-create')) {
+                Backbone.trigger(this.componentId + 'BuscarTema-' + 'instead-recurso-create', {view: this});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-recurso-create', {view: this});
+                this.currentModel = new this.modelClass({componentId: this.componentId});
+                this._renderEdit();
+                Backbone.trigger(this.componentId + '-' + 'post-recurso-create', {view: this});
+            }
          }
      
      
