@@ -69,7 +69,7 @@ public void testbarra()
     driver.findElement(By.linkText("Recursos")).click();
 }
     @Test
-    public void testCreateEquipo() throws Exception {
+    public void testCreateRecurso() throws Exception {
  
         driver.get(baseUrl+"/ClinicaDeProblemas.web/recurso.html");
       //  driver.findElement(By.linkText("Proyectos")).click();
@@ -155,7 +155,7 @@ public void testbarra()
     }
     
     @Test
-        public void testUpdateSport() throws Exception {
+        public void testUpdateRecurso() throws Exception {
             driver.get(baseUrl+"/ClinicaDeProblemas.web/recurso.html");
         //    driver.findElement(By.linkText("Proyectos")).click();
             //Se hace clic en  el vinculo "Edit" del primer elemento de la lista de sports (el elemento que se cre� en la anterior prueba)
@@ -264,17 +264,9 @@ public void testbarra()
         
         }
        
+      
         @Test
-        public void testTags() throws Exception{
-            driver.get(baseUrl+"/ClinicaDeProblemas.web/recurso.html");
-            driver.findElement(By.id("tagCharlabusqueda")).sendKeys("bla");
-               Thread.sleep(10000);
-               driver.findElement(By.id("botonBuscarCharla")).click();
-               Thread.sleep(5000);
-          
-        }
-        @Test
-    public void testDeleteSport() throws Exception {
+    public void testDeleteRecurso() throws Exception {
         /**
          * Se hace clic en el vinculo "Delete" del primer elemento de la lista
          * de sports

@@ -67,7 +67,7 @@ public void testbarra()
     driver.findElement(By.linkText("uTI")).click();
 }
     @Test
-    public void testCreateEquipo() throws Exception {
+    public void testCreateUTI() throws Exception {
  
         driver.get(baseUrl+"/ClinicaDeProblemas.web/uTI.html");
       //  driver.findElement(By.linkText("Proyectos")).click();
@@ -155,7 +155,7 @@ public void testbarra()
     }
     
     @Test
-        public void testUpdateSport() throws Exception {
+        public void testUpdateUTI() throws Exception {
             driver.get(baseUrl+"/ClinicaDeProblemas.web/uTI.html");
         //    driver.findElement(By.linkText("Proyectos")).click();
             //Se hace clic en  el vinculo "Edit" del primer elemento de la lista de sports (el elemento que se cre� en la anterior prueba)
@@ -247,15 +247,10 @@ public void testbarra()
         
         }
        
+        
+      
         @Test
-        public void testTags() throws Exception{
-            driver.get(baseUrl+"/ClinicaDeProblemas.web/noticiaMaster.html");
-            driver.findElement(By.id("name")).sendKeys("hola");
-               Thread.sleep(10000);
-           
-        }
-        @Test
-    public void testDeleteSport() throws Exception {
+    public void testDeleteUTI() throws Exception {
         /**
          * Se hace clic en el vinculo "Delete" del primer elemento de la lista
          * de sports
