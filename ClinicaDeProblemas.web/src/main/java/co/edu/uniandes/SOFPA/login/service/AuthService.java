@@ -1,3 +1,5 @@
+package co.edu.uniandes.SOFPA.login.service;
+
 
 import java.io.IOException;
 import javax.ejb.Stateless;
