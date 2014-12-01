@@ -1,3 +1,10 @@
+<script>
+function darUrl(){
+    document.getElementById('url').value= window.name;
+    document.getElementById('<%= componentId %>-recursoForm').submit();
+    }
+        
+        </script> 
 <script type="text/template" id="recurso">
     <div class="form-group">
     <form role="form"  id="<%= componentId %>-recursoForm">
@@ -55,14 +62,17 @@
                     </select>   
 		</div>
 		<div class="form-group" >
-		<label for="url">Url</label>
-    	<input type="text" class="form-control" id="url" name="url" placeholder="Enter value" value="<%= recurso.get('url') %>"/>	
+		<label for="url">Url</label>   
+    	<input type="text" class="form-control" id="url" name="url" placeholder = "Enter Value" value="<%= recurso.get('url') %>"/>	
 		</div> 
                 <div>
-                <button class="btn btn-primary" type="button" onClick="javascript:window.open('ejemploCargar.html','','width=400,height=300,left=50,top=50,toolbar=yes')">cargar Archivo</button>
+                <button class="btn btn-primary" type="button" onClick="javascript:window.open('ejemploCargar.html','_self',false)">cargar Archivo</button>
                 </div>
         <div>
                 <button class="btn btn-primary" type="button" onClick="javascript:window.open('editardoces.html')">editar</button>
+                </div>
+        <div>
+                <button class="btn btn-primary" type="button" onClick="darUrl()">urlanzas</button>
                 </div>
     </form>
     </div>
