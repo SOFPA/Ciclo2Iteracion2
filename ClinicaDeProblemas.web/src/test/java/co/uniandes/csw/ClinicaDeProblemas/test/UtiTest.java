@@ -10,13 +10,23 @@ package co.uniandes.csw.ClinicaDeProblemas.test;
  *
  * @author estudiante
  */
+import co.edu.uniandes.csw.SOFPA.uti.service.UTIService;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.*;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
+@RunWith(Arquillian.class)
 public class UtiTest {
       private static WebDriver driver;
     private static String baseUrl;
@@ -30,7 +40,22 @@ public class UtiTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
  
     }
+    
+     @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+            .addClass(UTIService.class)
+            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    }
  
+      @Inject
+    UTIService uti;
+      
+      @Test
+    public void probarTest() {
+        Assert.assertEquals("probando probando",uti.probarTest());
+    }
+      
     @Before
     public void setUpUrl() {
         driver.get(baseUrl + "/ClinicaDeProblemas.web/");

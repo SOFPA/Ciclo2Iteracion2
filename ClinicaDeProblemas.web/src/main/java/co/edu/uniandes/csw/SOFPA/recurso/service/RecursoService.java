@@ -65,5 +65,10 @@ public class RecursoService extends _RecursoService {
          }
          return super.getRecursos(page, maxRecords);
      }
+      
+      public String probarTest()
+        {
+           return ("probando probando");
+        }
 
 }

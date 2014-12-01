@@ -5,18 +5,45 @@
  */
 
 package co.uniandes.csw.ClinicaDeProblemas.test;
+import co.edu.uniandes.csw.SOFPA.recurso.service.RecursoService;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.*;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  *
- * @author estudiante
+ * @author Henry Jaimes
  */
+
+@RunWith(Arquillian.class)
 public class RecursoTest {
+    
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+            .addClass(RecursoService.class)
+            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    }
+    // constructor de la clase que va a probar
+    @Inject
+    RecursoService recurso;
+
+ //Puede poner tantos m�todos como quiera, con tal de que empieze con @Test
+    @Test
+    public void probarTest() {
+        Assert.assertEquals("probando probando",recurso.probarTest());
+    }
+
     
      private static WebDriver driver;
     private static String baseUrl;
