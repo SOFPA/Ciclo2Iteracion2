@@ -128,7 +128,6 @@ public class UsuarioLogicServiceTest {
 		UsuarioDTO pdto=usuarioPersistence.getUsuario(result.getId());
 		
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
-		Assert.assertEquals(ldto.getLogin(), pdto.getLogin());	
 		Assert.assertEquals(ldto.getPassword(), pdto.getPassword());	
 		Assert.assertEquals(ldto.getTipo(), pdto.getTipo());	
 	}
@@ -186,7 +185,6 @@ public class UsuarioLogicServiceTest {
 		UsuarioDTO resp=usuarioPersistence.getUsuario(pdto.getId());
 		
 		Assert.assertEquals(ldto.getName(), resp.getName());	
-		Assert.assertEquals(ldto.getLogin(), resp.getLogin());	
 		Assert.assertEquals(ldto.getPassword(), resp.getPassword());	
 		Assert.assertEquals(ldto.getTipo(), resp.getTipo());	
 	}
