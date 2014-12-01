@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Sun Nov 30 20:27:42 COT 2014:
- Arrancando Derby versión The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instancia a816c00e-014a-0375-d68c-00000ffbb968 
-en el directorio de base de datos C:\Users\estudiante\AppData\Local\Temp\gfembed62312527181548401tmp\lib\databases\embedded_default  con el cargador de clases sun.misc.Launcher$AppClassLoader@1d262f7c
-
+Mon Dec 01 18:35:54 COT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-014a-0835-d930-000005c6e230 
+on database directory C:\Users\VAIO\AppData\Local\Temp\gfembed4763984976963621241tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
+Loaded from file:/C:/Users/VAIO/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.0/glassfish-embedded-all-4.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_65-b19
-user.dir=C:\Users\estudiante\workspace\CDPFinal\ClinicaDeProblemas.web
+java.runtime.version=1.8.0_11-b12
+user.dir=C:\Users\VAIO\Documents\GitHub\Ciclo2Iteracion2\ClinicaDeProblemas.web
 derby.system.home=null
-Cargador de clases de base de datos iniciado - derby.database.classpath=''
+Database Class Loader started - derby.database.classpath=''

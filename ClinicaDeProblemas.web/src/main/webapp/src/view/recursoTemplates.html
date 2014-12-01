@@ -86,8 +86,14 @@ function darUrl(){
     <thead>
     <tr>
          <th>Nombre</th>
-         <th>Url</th>
-         <th>Avalar</th>
+         <th>Tema</th>
+        <th>Dificultad</th>
+        <th>Tipo</th>
+        <th>Avalado</th>
+        <th>Semestre</th>
+        <th>Materia</th>
+        <th>Url</th>
+         
     </tr>
     </thead>
     <tbody>
@@ -97,8 +103,14 @@ function darUrl(){
     <tr>
             <td><%= htmlEncode(recurso.getDisplay('name')) %></td>
             <!-- esta instrucci�n indica qu� campo del elemento actual del bucle se debe mostrar en ese lugar (cada <td> es una columna)>  -->
-            <td><%= htmlEncode(recurso.getDisplay('url')) %></td>
-            <td><input id="selection" type="checkbox" name="selection" value="<%= recurso.get('name')%>" /></td>
+            <td><%= htmlEncode(recurso.getDisplay('tema')) %></td>
+    <td><%= htmlEncode(recurso.getDisplay('dificultad')) %></td>
+    <td><%= htmlEncode(recurso.getDisplay('tipo')) %></td>
+    <td><%= htmlEncode(recurso.getDisplay('avalado')) %></td>
+    <td><%= htmlEncode(recurso.getDisplay('semestre')) %></td>
+    <td><%= htmlEncode(recurso.getDisplay('materia')) %></td>
+    <td><%= htmlEncode(recurso.getDisplay('url')) %></td>
+            
     </tr>
     <% }); %>
     </tbody>
