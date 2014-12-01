@@ -55,7 +55,7 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
                  icon: '',
                  show: true
              },
-             this.verRecurso,
+             this.view,
              this);
              
              this.listComponent.addAction({
@@ -191,9 +191,12 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
          },
          verRecurso: function(){
              // Se le deberia pasar la URL
-             $("#recursoList").hide();
-             $(".pagination").hide();
-             this.componentController.verRecurso();
+            this.toolbarComponent.showButton('save');
+            this.toolbarComponent.showButton('cancel');
+            this.toolbarComponent.render();
+            this.componentController.edit(params);
+             //$("#10248-recursoForm").hide();
+            
          },
          
          comentar: function(){

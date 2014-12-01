@@ -56,7 +56,13 @@ define(['controller/listController'], function () {
 		},
 		display: function (flag) {
 			this.listController.display(flag);
-		}
+		},
+                 view: function(params) {
+                    this.toolbarComponent.showButton('save');
+                    this.toolbarComponent.showButton('cancel');
+                    this.toolbarComponent.render();
+                    this.componentController.edit(params);
+        }
 	});
 
 	return App.Component.ListComponent;

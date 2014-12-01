@@ -35,6 +35,9 @@ define(['model/_recursoModel'], function() {
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
+            if(!attrs.semestre){
+                validationMessage = "The semestre can't be empty.";
+            }
             if(validationMessage.length>0){
                return validationMessage;
             }
