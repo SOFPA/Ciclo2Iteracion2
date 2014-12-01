@@ -130,7 +130,6 @@ public class UsuarioPersistenceTest {
 		UsuarioEntity entity=em.find(UsuarioEntity.class, result.getId());
 		
 		Assert.assertEquals(dto.getName(), entity.getName());
-		Assert.assertEquals(dto.getLogin(), entity.getLogin());
 		Assert.assertEquals(dto.getPassword(), entity.getPassword());
 		Assert.assertEquals(dto.getTipo(), entity.getTipo());
 	}
@@ -156,7 +155,6 @@ public class UsuarioPersistenceTest {
 		UsuarioDTO dto=usuarioPersistence.getUsuario(entity.getId());
         Assert.assertNotNull(dto);
 		Assert.assertEquals(entity.getName(), dto.getName());
-		Assert.assertEquals(entity.getLogin(), dto.getLogin());
 		Assert.assertEquals(entity.getPassword(), dto.getPassword());
 		Assert.assertEquals(entity.getTipo(), dto.getTipo());
         
@@ -187,8 +185,7 @@ public class UsuarioPersistenceTest {
 		
 		UsuarioEntity resp=em.find(UsuarioEntity.class, entity.getId());
 		
-		Assert.assertEquals(dto.getName(), resp.getName());	
-		Assert.assertEquals(dto.getLogin(), resp.getLogin());	
+		Assert.assertEquals(dto.getName(), resp.getName());		
 		Assert.assertEquals(dto.getPassword(), resp.getPassword());	
 		Assert.assertEquals(dto.getTipo(), resp.getTipo());	
 	}
