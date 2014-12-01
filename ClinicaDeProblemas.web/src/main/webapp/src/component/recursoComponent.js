@@ -187,7 +187,10 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.toolbarComponent.hideButton('cancel-search');
              this.toolbarComponent.hideButton('exec-search');
              this.toolbarComponent.render();
-             this.componentController.recursoSearch(this.list,this);
+             
+             this.componentController.recursoSearch();
+             
+             this.listComponent.render();
          },
          verRecurso: function(){
              // Se le deberia pasar la URL

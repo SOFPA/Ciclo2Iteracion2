@@ -8,8 +8,14 @@ define(['model/recursosPorAvalarModel'], function() {
 //Aquí se define la estructura de un ítem de la lista. Note que el modelo extiende el modelo estándar backbone.
     App.Model.RecursosPorAvalarModel = Backbone.Model.extend({
         defaults: {
-         'name' : '',
-         'url' : ''
+         'name' : '' ,  
+		 'tema' : '' ,  
+		 'dificultad' : '' ,  
+		 'tipo' : '' ,  
+		 'avalado' :  false  ,  
+		 'semestre' : '' ,  
+		 'materia' : '' ,  
+		 'url' : ''       
         },
         getDisplay: function(name) {
          return this.get(name);

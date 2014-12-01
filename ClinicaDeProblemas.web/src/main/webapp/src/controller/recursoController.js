@@ -105,17 +105,101 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
                         });
                
         },
-         recursoSearch: function (callback,context) {
-              var self = this;
+         recursoSearch: function () {
+              
               var model = $('#' + this.componentId + '-recursoForm').serializeObject();
-              this.currentModel.set(model);
-              var delegate = new App.Delegate.recursoDelegate();
-              delegate.search(self.currentModel, function (data) {
-                  self.currentList.reset(data.records);
-                 callback.call(context,{data: self.currentList, page: 1, pages: 1, totalRecords: self.currentList.lenght})
-              }, function (data) {
-                 Backbone.trigger(self.componentId + '-' + 'error', {event: 'recurso-search', view: self, id: '', data: data, error: 'Error in recurso search'});
-              });
+              
+              var nombre = model.name;
+              var tema = model.tema;
+              var materia = model.materia;
+              var dificultad = model.dificultad;
+              var tipo = model.tipo;
+              var avalado = model.avalado;
+              var semestre = model.semestre;
+              var url = model.url;
+              this.buscarPorNombre(nombre, tema, materia, dificultad, tipo, semestre, url);
+              
+          },
+          
+          buscarPorNombre: function(nombre, tema, materia, dificultad, tipo, semestre, url, params){
+              console.log(nombre);
+              if (params) {
+                var data = params.data;
+            }
+            if (App.Utils.eventExists(this.componentId + '-' + 'instead-recurso-list')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-recurso-list', {view: this, data: data});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-recurso-list', {view: this, data: data});
+                var self = this;
+                if (!this.recursoModelList) {
+                    this.recursoModelList = new this.listModelClass();
+                }
+                //se obtienen los deportes del servicio getSports
+                this.recursoModelList.fetch({
+                    data: data,
+                    success: function() {
+                        var elementos = self.recursoModelList.models;
+                        //Ahora se instancia el nuevo modelo construido
+                        self.recursosPorAvalarModelList = new App.Model.RecursosPorAvalarList;
+                        //Se itera sobre la variable elementos, que corresponden a la lista de modelos obtenida del servico REST getSports
+                        _.each(elementos, function(d) {
+                            //Se hace el c�lculo del nuevo campo
+                            
+                            /*Ahora se instancia un SportPromModel, con un nuevo objeto JSON como par�metro como constructor (antes sportModel), extrayendo los datos de �d�.*/
+                            var model = new App.Model.RecursosPorAvalarModel({name: d.attributes.name, tema: d.attributes.tema, dificultad: d.attributes.dificultad, tipo: d.attributes.tipo, avalado:d.attributes.avalado, semestre: d.attributes.semestre, materia: d.attributes.materia, url: d.attributes.url});
+                            //y se agrega finalmente a los modelos prom de la lista.
+                            if(d.attributes.name === nombre)
+                            {
+                              self.recursosPorAvalarModelList.models.push(model); 
+                            }
+                            else
+                            {
+                                
+                                if(d.attributes.tema === tema && d.attributes.materia === materia && d.attributes.dificultad === dificultad && d.attributes.tema === tema && d.attributes.semestre === semestre && d.attributes.tipo === tipo && d.attributes.url === url)
+                                {
+                                    self.recursosPorAvalarModelList.models.push(model); 
+                                    
+                                }
+                                else if(semestre === "" && url === "" && d.attributes.tema === tema && d.attributes.materia === materia && d.attributes.dificultad === dificultad && d.attributes.tema === tema && d.attributes.tipo === tipo )
+                                {
+                                    self.recursosPorAvalarModelList.models.push(model);
+                                }
+                                
+                                else if(semestre === "" && url !== "" && d.attributes.tema === tema && d.attributes.materia === materia && d.attributes.dificultad === dificultad && d.attributes.tema === tema && d.attributes.tipo === tipo && d.attributes.url === url)
+                                {
+                                    self.recursosPorAvalarModelList.models.push(model);
+                                    console.log("sin semestre");
+                                }
+                                else if( url === "" && semestre !== "" && d.attributes.tema === tema && d.attributes.materia === materia && d.attributes.dificultad === dificultad && d.attributes.tema === tema && d.attributes.tipo === tipo && d.attributes.semestre === semestre)
+                                {
+                                    console.log("sin url");
+                                    self.recursosPorAvalarModelList.models.push(model);
+                                }
+                                
+                                
+//                                else if(d.attributes.tema === tema && d.attributes.materia === materia && d.attributes.dificultad === dificultad && d.attributes.tema === tema)
+//                                {
+//                                    self.recursosPorAvalarModelList.models.push(model);
+//                                }
+//                                else if(d.attributes.tema === tema && d.attributes.materia === materia && d.attributes.dificultad === dificultad)
+//                                {
+//                                    
+//                                }
+                                
+                                
+                            }
+                            
+                        });
+                        //Se invoca la funci�n de renderizado para que muestre los resultados en la nueva lista.
+                        self._renderLista(params);
+                        Backbone.trigger(self.componentId + '-' + 'post-recurso-list', {view: self});
+                    },
+                    error: function(mode, error) {
+                        Backbone.trigger(self.componentId + '-' + 'error', {event: 'recurso-list', view: self, error: error});
+                    }
+                });
+            }
+              
           },
           
          verRecurso: function(){
