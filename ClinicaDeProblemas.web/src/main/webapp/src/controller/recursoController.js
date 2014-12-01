@@ -171,7 +171,46 @@ define(['controller/_recursoController','delegate/recursoDelegate'], function() 
          guardarComentario: function()
          {
              var v = $('');
-         }
+         },
+         view: function(params){
+             
+             var id = params.id;
+            var data = params.data;
+            if (App.Utils.eventExists(this.componentId + '-' +'instead-recurso-edit')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-recurso-edit', {view: this, id: id, data: data});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-recurso-edit', {view: this, id: id, data: data});
+                if (this.currentList) {
+                    this.currentModel = this.currentList.get(id);
+                    this.currentModel.set('componentId',this.componentId); 
+                    this.renderVer();
+                    Backbone.trigger(this.componentId + '-' + 'post-recurso-edit', {view: this, id: id, data: data});
+                } else {
+                    var self = this;
+                    this.currentModel = new this.modelClass({id: id});
+                    this.currentModel.fetch({
+                        data: data,
+                        success: function() {
+                            self.currentModel.set('componentId',self.componentId); 
+                            self.renderVer();
+                            Backbone.trigger(self.componentId + '-' + 'post-recurso-edit', {view: this, id: id, data: data});
+                        },
+                        error: function() {
+                            Backbone.trigger(self.componentId + '-' + 'error', {event: 'recurso-edit', view: self, id: id, data: data, error: error});
+                        }
+                    });
+                }
+            }
+           
+        },
+        renderVer: function() {
+            var self = this;
+            this.$el.slideUp("fast", function() {
+                self.$el.html("<iframe src=\"http://docs.google.com/gview?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true\" style=\"width:600px; height:500px;\" frameborder=\"0\"></iframe>");
+                self.$el.slideDown("fast");
+            });
+        }
+         
      
      
     });

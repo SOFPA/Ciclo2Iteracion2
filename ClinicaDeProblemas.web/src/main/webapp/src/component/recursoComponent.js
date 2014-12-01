@@ -227,6 +227,14 @@ define(['component/_recursoComponent', 'model/recursosPorAvalarModel'], function
              this.toolbarComponent.hideButton('salvarComentario');
              this.toolbarComponent.hideButton('cancel');
              this.toolbarComponent.render();
+         },
+         view : function(params){
+             
+            this.toolbarComponent.render();
+            
+            this.componentController.view(params);
+            
+            
          }
     });
     return App.Component.RecursoComponent;
