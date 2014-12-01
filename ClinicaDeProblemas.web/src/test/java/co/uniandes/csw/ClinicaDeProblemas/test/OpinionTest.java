@@ -42,7 +42,7 @@ public void testbarra() throws Exception
      Thread.sleep(2000);
 }
     @Test
-    public void testCreateEquipo() throws Exception {
+    public void testCreateOpinion() throws Exception {
  
         driver.get(baseUrl+"/ClinicaDeProblemas.web/opinion.html");
       //  driver.findElement(By.linkText("Proyectos")).click();
@@ -122,7 +122,7 @@ public void testbarra() throws Exception
     }
     
     @Test
-        public void testUpdateSport() throws Exception {
+        public void testUpdateOpinion() throws Exception {
             driver.get(baseUrl+"/ClinicaDeProblemas.web/opinion.html");
         //    driver.findElement(By.linkText("Proyectos")).click();
             //Se hace clic en  el vinculo "Edit" del primer elemento de la lista de sports (el elemento que se cre� en la anterior prueba)
@@ -216,7 +216,7 @@ public void testbarra() throws Exception
         }
        
         @Test
-        public void testTags() throws Exception{
+        public void testOpinion() throws Exception{
             driver.get(baseUrl+"/ClinicaDeProblemas.web/opinion.html");
             driver.findElement(By.id("name")).sendKeys("opinion1");
                Thread.sleep(10000);

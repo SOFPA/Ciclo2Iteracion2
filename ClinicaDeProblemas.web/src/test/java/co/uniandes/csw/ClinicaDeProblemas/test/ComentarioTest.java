@@ -205,14 +205,14 @@ public void testbarra()
         }
        
         @Test
-        public void testTags() throws Exception{
+        public void testComentario() throws Exception{
             driver.get(baseUrl+"/ClinicaDeProblemas.web/comentario.html");
             driver.findElement(By.id("name")).sendKeys("coment1");
                Thread.sleep(10000);
             
         }
         @Test
-    public void testDeleteSport() throws Exception {
+    public void testDeleteComentario() throws Exception {
         /**
          * Se hace clic en el vinculo "Delete" del primer elemento de la lista
          * de sports
