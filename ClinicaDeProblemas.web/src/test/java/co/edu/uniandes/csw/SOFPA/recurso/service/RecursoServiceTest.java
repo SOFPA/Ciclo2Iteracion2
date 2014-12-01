@@ -70,9 +70,10 @@ public class RecursoServiceTest {
 
     /**
      * Test of getRecursos method, of class RecursoService.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testGetRecursos() throws Exception {
+    public void testGetRecursos(RecursoPageDTO RecursoPageDTO) throws Exception {
         System.out.println("getRecursos");
         assertEquals(true, true);
     }
